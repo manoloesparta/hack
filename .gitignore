@@ -1,0 +1,6 @@
+nand2tetris/
+tools/
+projects/
+*.cmp
+*.tst
+*.out
