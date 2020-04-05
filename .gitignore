@@ -4,3 +4,5 @@ projects/
 *.cmp
 *.tst
 *.out
+build/
+.DS_Store
