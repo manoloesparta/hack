@@ -4,9 +4,9 @@ project(Computer VERSION 0.1 LANGUAGES C)
 
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_C_STANDARD 99)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules/")
 
 include_directories(include)
 
-file(GLOB srcfiles src/*/*.c)
-
-add_executable(comp src/main.c ${srcfiles})
+add_subdirectory(src)
+add_subdirectory(tests)

@@ -45,10 +45,44 @@ int* Multi8WayMUX(int* a, int* b, int* c, int* d, int* e, int* f, int* g, int* h
 
 int* Multi4WayDMUX(int input, int* sel)
 {
+	int* res = malloc(4 * sizeof(int));
 
+	int* tmp = DMUX(input, *(sel + 0));
+	int* tmp1 = DMUX(*(tmp + 0), *(sel + 1));
+	int* tmp2 = DMUX(*(tmp + 1), *(sel + 1));
+	free(tmp);
+
+	*(res + 0) = *(tmp1 + 0);
+	*(res + 1) = *(tmp1 + 1);
+	free(tmp1);
+
+	*(res + 2) = *(tmp2 + 0);
+	*(res + 3) = *(tmp2 + 1);
+	free(tmp2);
+
+	return res;
 }
 
 int* Multi8WayDMUX(int input, int* sel)
 {
+	int* res = malloc(8 * sizeof(int));
 
+	int* tmp = DMUX(input, *(sel + 0));
+	int* tmp1  = Multi4WayDMUX(*(tmp + 0), sel + 1);
+	int* tmp2  = Multi4WayDMUX(*(tmp + 1), sel + 1);
+	free(tmp);
+
+	*(res + 0) = *(tmp1 + 0);
+	*(res + 1) = *(tmp1 + 1);
+	*(res + 2) = *(tmp1 + 2);
+	*(res + 3) = *(tmp1 + 3);
+	free(tmp1);
+
+	*(res + 4) = *(tmp2 + 0);
+	*(res + 5) = *(tmp2 + 1);
+	*(res + 6) = *(tmp2 + 2);
+	*(res + 7) = *(tmp2 + 3);
+	free(tmp2);
+
+	return res;
 }
