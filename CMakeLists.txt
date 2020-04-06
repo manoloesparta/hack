@@ -23,5 +23,5 @@ foreach(SINGLE_TEST ${testfiles})
     add_executable(${TEST_NAME} ${SINGLE_TEST})
     target_link_libraries(${TEST_NAME} hacklib unity)
     
-    add_test(test_${TEST_NAME} ${TEST_NAME})
+    add_test(${TEST_NAME} ${TEST_NAME})
 endforeach(SINGLE_TEST)

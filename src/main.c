@@ -6,10 +6,11 @@ void printmalloc(int* arr, int size);
 
 int main()
 {
-	while(1)
+	for(int i = 0; 1; i++)
 	{
-		int sel[] = {1,1,0};
+		int sel[] = {0,0,0};
 		int* res = Multi8WayDMUX(1, sel);
+		printf("Log %d: ", i);
 		printmalloc(res, 8);
 		sleep(1);
 	}
