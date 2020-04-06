@@ -1,5 +1,5 @@
-#ifndef __COMPUTER__
-#define __COMPUTER__
+#ifndef __COMPUTER_H__
+#define __COMPUTER_H__
 
 #include "gates.h"
 

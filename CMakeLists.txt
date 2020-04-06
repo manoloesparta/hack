@@ -8,5 +8,20 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules/")
 
 include_directories(include)
 
-add_subdirectory(src)
-add_subdirectory(tests)
+file(GLOB hacksrc src/*/*.c)
+add_library(hacklib ${hacksrc})
+add_executable(comp src/main.c ${hacksrc})
+
+enable_testing()
+add_library(unity STATIC deps/unity/src/unity.c)
+target_include_directories(unity PUBLIC deps/unity/src)
+
+file(GLOB testfiles tests/*.c)
+foreach(SINGLE_TEST ${testfiles})
+    get_filename_component(TEST_NAME ${SINGLE_TEST} NAME_WE)
+
+    add_executable(${TEST_NAME} ${SINGLE_TEST})
+    target_link_libraries(${TEST_NAME} hacklib unity)
+    
+    add_test(test_${TEST_NAME} ${TEST_NAME})
+endforeach(SINGLE_TEST)

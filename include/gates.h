@@ -1,5 +1,5 @@
-#ifndef __GATES__
-#define __GATES__
+#ifndef __GATES_H__
+#define __GATES_H__
 
 // Every function that returns a pointer must be freed
 
@@ -8,7 +8,7 @@ int OR(int a, int b);
 int AND(int a, int b);
 int XOR(int a, int b);
 int MUX(int a, int b, int sel);
-int* DMUX(int a, int b);
+int* DMUX(int input, int sel);
 
 int* Multi16BitNOT(int* input);
 int* Multi16BitAND(int* a, int* b);
