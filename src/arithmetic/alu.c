@@ -1,5 +1,10 @@
 #include "computer.h"
 
+int* Incremeter16(int* input)
+{
+
+}
+
 int* Full16Adder(int* a, int* b)
 {
 

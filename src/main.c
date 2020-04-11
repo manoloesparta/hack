@@ -8,10 +8,9 @@ int main()
 {
 	for(int i = 0; 1; i++)
 	{
-		int sel[] = {0,0,0};
-		int* res = Multi8WayDMUX(1, sel);
+		int* res = FullAdder(0,1,1);
 		printf("Log %d: ", i);
-		printmalloc(res, 8);
+		printmalloc(res, 2);
 		sleep(1);
 	}
 	return 0;
