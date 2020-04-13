@@ -3,8 +3,8 @@
 
 void test_HalfAdder();
 void test_FullAdder();
-void test_Incrementer16();
-void test_Full16Adder();
+void test_Add16();
+void test_Inc16();
 void test_ALU();
 
 void setUp(void){}
@@ -16,8 +16,8 @@ int main(void)
 
     RUN_TEST(test_HalfAdder);
     RUN_TEST(test_FullAdder);
-    // RUN_TEST(test_Incrementer16);
-    // RUN_TEST(test_Full16Adder);
+    RUN_TEST(test_Add16);
+    RUN_TEST(test_Inc16);
     // RUN_TEST(test_ALU);
 
     return UNITY_END();
@@ -40,5 +40,36 @@ void test_FullAdder()
     TEST_ASSERT_EQUAL_INT_ARRAY(res1, FullAdder(0,0,1), 2);
     int res2[] = {0,1};
     TEST_ASSERT_EQUAL_INT_ARRAY(res2, FullAdder(0,1,1), 2);
+}
 
+void test_Add16()
+{
+    int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0,0};
+    int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0};
+    int d[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0};
+    int c[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    int res0[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res0, Add16(c,c), 17);
+    int res1[] = {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res1, Add16(d,d), 17);
+    int res2[] = {0,1,1,1,1,1,1,1,0,1,0,0,0,1,0,1,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Add16(a, b), 17);
+    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Add16(b, a), 17);
+    TEST_ASSERT_EQUAL_INT_ARRAY(a, Add16(c,a), 17);
+    TEST_ASSERT_EQUAL_INT_ARRAY(b, Add16(b,c), 17);
+}
+
+void test_Inc16()
+{
+    int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0,0};
+    int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0};
+    int d[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0};
+
+    int res0[] = {0,1,1,0,1,0,0,0,1,0,1,0,1,1,0,0,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res0, Inc16(a), 17);
+    int res1[] = {0,1,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res1, Inc16(b), 17);
+    int res2[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Inc16(d), 17);
 }

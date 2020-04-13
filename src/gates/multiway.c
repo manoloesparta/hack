@@ -31,7 +31,6 @@ int* Multi4WayMUX(int* a, int* b, int* c, int* d, int* sel)
 
 int* Multi8WayMUX(int* a, int* b, int* c, int* d, int* e, int* f, int* g, int* h, int* sel)
 {
-
 	int* tmp1 = Multi4WayMUX(a, b, c, d, sel + 1);
 	int* tmp2 = Multi4WayMUX(e, f, g, h, sel + 1);
 
