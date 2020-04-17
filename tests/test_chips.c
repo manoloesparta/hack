@@ -44,32 +44,32 @@ void test_FullAdder()
 
 void test_Add16()
 {
-    int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0,0};
-    int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0};
-    int d[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0};
-    int c[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0};
+    int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0};
+    int d[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    int c[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
-    int res0[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    TEST_ASSERT_EQUAL_INT_ARRAY(res0, Add16(c,c), 17);
-    int res1[] = {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-    TEST_ASSERT_EQUAL_INT_ARRAY(res1, Add16(d,d), 17);
-    int res2[] = {0,1,1,1,1,1,1,1,0,1,0,0,0,1,0,1,0};
-    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Add16(a, b), 17);
-    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Add16(b, a), 17);
-    TEST_ASSERT_EQUAL_INT_ARRAY(a, Add16(c,a), 17);
-    TEST_ASSERT_EQUAL_INT_ARRAY(b, Add16(b,c), 17);
+    int res0[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res0, Add16(c,c), 16);
+    int res1[] = {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res1, Add16(d,d), 16);
+    int res2[] = {0,1,1,1,1,1,1,1,0,1,0,0,0,1,0,1};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Add16(a, b), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Add16(b, a), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(a, Add16(c,a), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(b, Add16(b,c), 16);
 }
 
 void test_Inc16()
 {
-    int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0,0};
-    int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0};
-    int d[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0};
+    int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0};
+    int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0};
+    int d[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 
-    int res0[] = {0,1,1,0,1,0,0,0,1,0,1,0,1,1,0,0,0};
-    TEST_ASSERT_EQUAL_INT_ARRAY(res0, Inc16(a), 17);
-    int res1[] = {0,1,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0};
-    TEST_ASSERT_EQUAL_INT_ARRAY(res1, Inc16(b), 17);
-    int res2[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
-    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Inc16(d), 17);
+    int res0[] = {0,1,1,0,1,0,0,0,1,0,1,0,1,1,0,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res0, Inc16(a), 16);
+    int res1[] = {0,1,0,1,0,1,1,1,1,0,1,1,0,1,1,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res1, Inc16(b), 16);
+    int res2[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    TEST_ASSERT_EQUAL_INT_ARRAY(res2, Inc16(d), 16);
 }

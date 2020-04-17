@@ -15,7 +15,7 @@ int main()
 		int c[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 		int* res = Add16(a,b);
 		printf("Log %d: ", i);
-		printmalloc(res, 17);
+		printmalloc(res, 16);
 		free(res);
 		sleep(1);
 	}

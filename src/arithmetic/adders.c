@@ -26,7 +26,7 @@ int* FullAdder(int a, int b, int c)
 
 int* Add16(int* a, int* b)
 {
-    int* res = (int*)malloc(17 * sizeof(int));
+    int* res = (int*)malloc(16 * sizeof(int));
 
     int* tmp0 = FullAdder(*(a + 0), *(b + 0), 0);
     *(res + 0) = *tmp0;
@@ -89,7 +89,6 @@ int* Add16(int* a, int* b)
 
     int* tmp15 = FullAdder(*(a + 15), *(b + 15), *(tmp14 + 1));
     *(res + 15) = *tmp15;
-    *(res + 16) = *(tmp15 + 1);
     free(tmp14);
     free(tmp15);
 
