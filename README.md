@@ -1,1 +1,1 @@
-# Implementation of Nand2Tetris in C
+# Implementation of the HACK Architecture

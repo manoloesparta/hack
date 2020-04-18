@@ -18,7 +18,7 @@ int main(void)
     RUN_TEST(test_FullAdder);
     RUN_TEST(test_Add16);
     RUN_TEST(test_Inc16);
-    // RUN_TEST(test_ALU);
+    RUN_TEST(test_ALU);
 
     return UNITY_END();
 }
@@ -72,4 +72,10 @@ void test_Inc16()
     TEST_ASSERT_EQUAL_INT_ARRAY(res1, Inc16(b), 16);
     int res2[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     TEST_ASSERT_EQUAL_INT_ARRAY(res2, Inc16(d), 16);
+}
+
+void test_ALU()
+{
+    int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0};
+    int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0};
 }
