@@ -11,13 +11,11 @@ int main()
 	{
 		int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0};
 		int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0};
-		int d[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-		int c[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-		int* res = Add16(a,b);
+		int* res = ALU(a, b, 1, 0, 0, 0, 1, 0);
 		printf("Log %d: ", i);
-		printmalloc(res, 16);
+		printmalloc(res, 18);
 		free(res);
-		sleep(1);
+		usleep(2 * 100000);
 	}
 	return 0;
 }

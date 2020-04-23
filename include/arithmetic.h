@@ -10,6 +10,6 @@ int* Inc16(int* input);
 int* Add16(int* a, int* b);
 
 // 16 bit res + 1 bit zero + 1 bit negative
-int* ALU(int* a, int* b, int zx, int nx, int zy, int ny, int f, int no);
+int* ALU(int* a, int* b, int za, int na, int zb, int nb, int f, int no);
 
 #endif

@@ -7,8 +7,8 @@ int* ALU(int* a, int* b, int za, int na, int zb, int nb, int f, int no)
 
     int* zero = (int*)malloc(16 * sizeof(int));
 
-    int* nota = NOT16(a);
-    int* notb = NOT16(b);
+    int* nota = Multi16BitNOT(a);
+    int* notb = Multi16BitNOT(b);
        
     int* zeroOrA = Multi16BitMUX(a, zero, za);
     int* finalA = Multi16BitMUX(zeroOrA, nota, na);
@@ -26,7 +26,7 @@ int* ALU(int* a, int* b, int za, int na, int zb, int nb, int f, int no)
     free(finalB);
 
     int* almost = Multi16BitMUX(andAB, sumAB, f);
-    int* notalmost = NOT16(almost);
+    int* notalmost = Multi16BitNOT(almost);
 
     int* final = Multi16BitMUX(almost, notalmost, no);
     free(almost);

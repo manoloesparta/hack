@@ -78,4 +78,7 @@ void test_ALU()
 {
     int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0};
     int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0};
+
+    TEST_ASSERT_EQUAL_INT_ARRAY(b, ALU(a, b, 1, 0, 0, 0, 1, 0), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(a, ALU(a, b, 0, 0, 1, 0, 1, 0), 16);
 }
