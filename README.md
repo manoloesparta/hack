@@ -1,7 +1,7 @@
 # Implementation of the HACK Architecture
 
-- [ ] Logic Gates
-- [ ] Arithmetic Logic Unit
+- [x] Logic Gates
+- [x] Arithmetic Logic Unit
 - [ ] Memory
 - [ ] Machine Language
 - [ ] Computer Architecture
