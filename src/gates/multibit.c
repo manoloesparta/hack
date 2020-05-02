@@ -3,7 +3,7 @@
 
 int* Multi16BitNOT(int* input)
 {
-	int* res = (int*)malloc(16 * sizeof(int));
+	int* res = (int*)calloc(16, sizeof(int));
 	*(res + 0) = NOT(*(input + 0));
 	*(res + 1) = NOT(*(input + 1));
 	*(res + 2) = NOT(*(input + 2));
@@ -25,7 +25,7 @@ int* Multi16BitNOT(int* input)
 
 int* Multi16BitAND(int* a, int* b)
 {
-	int* res = (int*)malloc(16 * sizeof(int));
+	int* res = (int*)calloc(16, sizeof(int));
 	*(res + 0) = AND(*(a + 0), *(b + 0));
 	*(res + 1) = AND(*(a + 1), *(b + 1));
 	*(res + 2) = AND(*(a + 2), *(b + 2));
@@ -47,7 +47,7 @@ int* Multi16BitAND(int* a, int* b)
 
 int* Multi16BitOR(int* a, int* b)
 {
-	int* res = (int*)malloc(16 * sizeof(int));
+	int* res = (int*)calloc(16, sizeof(int));
 	*(res + 0) = OR(*(a + 0), *(b + 0));
 	*(res + 1) = OR(*(a + 1), *(b + 1));
 	*(res + 2) = OR(*(a + 2), *(b + 2));
@@ -69,7 +69,7 @@ int* Multi16BitOR(int* a, int* b)
 
 int* Multi16BitMUX(int* a, int* b, int sel)
 {
-	int* res = (int*)malloc(16 * sizeof(int));
+	int* res = (int*)calloc(16, sizeof(int));
 	*(res + 0) = MUX(*(a + 0), *(b + 0), sel);
 	*(res + 1) = MUX(*(a + 1), *(b + 1), sel);
 	*(res + 2) = MUX(*(a + 2), *(b + 2), sel);

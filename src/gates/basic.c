@@ -32,7 +32,7 @@ int MUX(int a, int b, int sel)
 
 int* DMUX(int input, int sel)
 {
-	int* res = (int*)malloc(2 * sizeof(int));
+	int* res = (int*)calloc(2, sizeof(int));
 
 	int notsel = NOT(sel);
 	*(res + 0) = AND(input, notsel);

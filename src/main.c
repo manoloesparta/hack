@@ -14,7 +14,6 @@ int main()
 		int* res = ALU(a, b, 1, 0, 0, 0, 1, 0);
 		printf("Log %d: ", i);
 		printmalloc(res, 18);
-		free(res);
 		usleep(2 * 100000);
 	}
 	return 0;

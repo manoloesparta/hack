@@ -3,7 +3,7 @@
 
 int* HalfAdder(int a, int b)
 {
-    int* res = (int*)malloc(2 * sizeof(int));
+    int* res = (int*)calloc(2, sizeof(int));
     *(res + 0) = XOR(a, b);
     *(res + 1) = AND(a, b);
     return res;
@@ -11,7 +11,7 @@ int* HalfAdder(int a, int b)
 
 int* FullAdder(int a, int b, int c)
 {
-    int* res = (int*)malloc(2 * sizeof(int));
+    int* res = (int*)calloc(2, sizeof(int));
 
     int* tmp0 = HalfAdder(a, b);
     int* tmp1 = HalfAdder(*(tmp0 + 0), c);
@@ -26,7 +26,7 @@ int* FullAdder(int a, int b, int c)
 
 int* Add16(int* a, int* b)
 {
-    int* res = (int*)malloc(16 * sizeof(int));
+    int* res = (int*)calloc(16, sizeof(int));
 
     int* tmp0 = FullAdder(*(a + 0), *(b + 0), 0);
     *(res + 0) = *tmp0;
@@ -97,7 +97,7 @@ int* Add16(int* a, int* b)
 
 int* Inc16(int* input)
 {
-    int* inc = (int*)malloc(16 * sizeof(int));
+    int* inc = (int*)calloc(16, sizeof(int));
     *(inc + 0) = 1;
     return Add16(input, inc);
 }
