@@ -12,17 +12,28 @@ int* ALU(int* a, int* b, int za, int na, int zb, int nb, int f, int no)
        
     int* zeroOrA = Multi16BitMUX(a, zero, za);
     int* finalA = Multi16BitMUX(zeroOrA, nota, na);
+    free(zeroOrA);
+    free(nota);
 
     int* zeroOrB = Multi16BitMUX(b, zero, zb);
     int* finalB = Multi16BitMUX(zeroOrB, notb, nb);
+    free(zeroOrB);
+    free(notb);
+    free(zero);
 
     int* sumAB = Add16(finalA, finalB);
     int* andAB = Multi16BitAND(finalA, finalB);
+    free(finalA);
+    free(finalB);
 
     int* almost = Multi16BitMUX(andAB, sumAB, f);
     int* notalmost = Multi16BitNOT(almost);
+    free(sumAB);
+    free(andAB);
 
     int* final = Multi16BitMUX(almost, notalmost, no);
+    free(almost);
+    free(notalmost);
 
     int negative = *(final + 15);
 
@@ -47,6 +58,8 @@ int* ALU(int* a, int* b, int za, int na, int zb, int nb, int f, int no)
     *(res + 15) = *(final + 15);
     *(res + 16) = isAnswer;
     *(res + 17) = negative;
+
+    free(final);
 
     return res;
 }

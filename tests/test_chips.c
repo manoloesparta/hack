@@ -78,6 +78,19 @@ void test_ALU()
 {
     int a[] = {1,0,1,0,1,0,0,0,1,0,1,0,1,1,0,0};
     int b[] = {1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0};
+    int zero[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int* aplusb = Add16(a,b);
+    int* notaplusb = Multi16BitNOT(aplusb);
+    int* aandb = Multi16BitAND(a,b);
+    int* notaandb = Multi16BitNOT(aandb);
+    int* aminusb = Add16(a, Multi16BitNOT(b));
 
     TEST_ASSERT_EQUAL_INT_ARRAY(b, ALU(a, b, 1, 0, 0, 0, 1, 0), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(a, ALU(a, b, 0, 0, 1, 0, 1, 0), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(aplusb, ALU(a, b, 0, 0, 0, 0, 1, 0), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(aandb, ALU(a, b, 0, 0, 0, 0, 0, 0), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(notaplusb, ALU(a, b, 0, 0, 0, 0, 1, 1), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(notaandb, ALU(a, b, 0, 0, 0, 0, 0, 1), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(zero, ALU(a, b, 1, 0, 1, 0, 1, 0), 16);
+    TEST_ASSERT_EQUAL_INT_ARRAY(aminusb, ALU(a, b, 0, 0, 0, 1, 1, 0), 16);
 }
