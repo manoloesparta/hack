@@ -3,5 +3,6 @@
 
 #include "gates.h"
 #include "arithmetic.h"
+#include "sequential.h"
 
 #endif

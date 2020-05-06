@@ -16,6 +16,11 @@ int AND(int a, int b)
 	return a && b;
 }
 
+int NAND(int a, int b)
+{
+	return NOT(AND(a,b));
+}
+
 int XOR(int a, int b)
 {
 	int suba = AND(a, NOT(b));

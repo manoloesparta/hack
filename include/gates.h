@@ -5,6 +5,7 @@
 int NOT(int input);
 int OR(int a, int b);
 int AND(int a, int b);
+int NAND(int a, int b);
 int XOR(int a, int b);
 int MUX(int a, int b, int sel);
 
