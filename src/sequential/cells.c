@@ -13,3 +13,8 @@ int DataFlipFlop(int clock, int in)
 
     return q;
 }
+
+int Bit(int clock, int in, int load)
+{
+   
+}

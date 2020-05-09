@@ -2,7 +2,7 @@
 
 - [x] Logic Gates
 - [x] Arithmetic Logic Unit
-- [ ] Memory
-- [ ] Machine Language
+- [ ] Sequentila Logic
 - [ ] Computer Architecture
+- [ ] Machine Language
 - [ ] Assembler
